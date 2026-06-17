@@ -26,10 +26,10 @@ README.md          # documentação do projeto
 
 Antes de começar, é preciso ter instalado:
 
+- Crhome
+- Libre office
 - VS Code
 - Mamba
-- FastQC
-- MultiQC
 - Git (opcional, mas recomendado)
 
 ## Como criar o ambiente
@@ -39,7 +39,7 @@ Se quiser criar o ambiente manualmente, use:
 ```bash
 conda create --name orquideas-qc python=3.11 -y
 conda activate orquideas-qc
-conda install fastqc multiqc -y
+conda install fastqc multiqc -y #instala as ferramentas necessarias
 ```
 
 ## Dados de entrada
