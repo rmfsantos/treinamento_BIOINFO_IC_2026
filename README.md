@@ -11,8 +11,8 @@ Neste projeto, o aluno vai:
 - Rodar o MultiQC para juntar todos os relatórios em um único arquivo.
 - Aprender a documentar o projeto com um README.
 
-## Estrutura do projeto pasta raiz: treinamento_orchid_qc
-
+## Estrutura do projeto 
+nome do projeto: treinamento_orchid_qc
 ```text
 data/raw/          # arquivos FASTQ de entrada
 data/metadata/     # informações das amostras
@@ -24,12 +24,12 @@ README.md          # documentação do projeto
 
 ## Programas necessários
 
-Antes de começar, é preciso ter instalado:
+Antes de começar, é preciso ter instalado: (se virar, usar a IA para ajudar)
 
 - Crhome
 - Libre office
 - VS Code
-- Mamba
+- Conda
 - Git (opcional, mas recomendado)
 
 ## Como criar o ambiente
