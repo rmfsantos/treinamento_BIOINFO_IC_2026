@@ -61,10 +61,12 @@ data/raw/SSRXXXXXX.fastq.gz
 data/raw/SSRXXXXXX.fastq.gz
 ```
 
-Se o projeto tiver metadados, eles podem ser colocados em:
+## Metadados
+Fazer uma planilha de metadados das amostras
 
-```text
-data/metadata/samples.csv
+```tabela
+Run_ID,Spots,Bases,Size,GC_Content,Data_Status,Published
+data/metadata/metadata.csv
 ```
 Rodar um dos transcriptmas com o fastQC
 ``bash
