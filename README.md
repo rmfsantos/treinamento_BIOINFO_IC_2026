@@ -14,6 +14,7 @@ Neste projeto, o aluno vai:
 ## Estrutura do projeto 
 nome do projeto: treinamento_orchid_qc
 ```text
+docs/              # documentos e bibliografia
 data/raw/          # arquivos FASTQ de entrada
 data/metadata/     # informações das amostras
 scripts/           # scripts para rodar as análises
