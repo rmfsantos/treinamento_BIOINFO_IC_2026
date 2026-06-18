@@ -208,20 +208,10 @@ Depois da execução:
 
 O relatório MultiQC permite comparar várias amostras de uma vez, o que facilita a interpretação do QC.[web:11][web:80][web:81]  
 
-## Autor
-
-Preencha com:
-
-- Nome do aluno ou grupo
-- Disciplina
-- Instituição
-
-Exemplo:
-
-- Aluno: Maria Silva
-- Disciplina: Introdução à Bioinformática
-- Instituição: UEFS
-
 ## Observações
 
+## Proximos passos 
+- Aprender a interpretar os ralatorios fastqc e multiqc
+- Estudarf sobre Trimming e ferramentas de trimming (Trimmomatic, trim galore) e pensar em qual usar no projeto
+- Aprender a baixar SRR pelo terminal via SRAtoolkit
 Este projeto pode ser reutilizado em outros conjuntos de dados, bastando trocar os arquivos FASTQ na pasta `data/raw/` e ajustar os metadados, se necessário.
