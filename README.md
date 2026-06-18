@@ -35,7 +35,7 @@ Antes de começar, é preciso ter instalado: (se virar, usar a IA para ajudar)
 Se quiser criar o ambiente manualmente, use:
 
 ```bash
-conda create --name orquideas-qc python=3.11 -y
+conda create --name orchid_qc 
 conda activate orquideas-qc # ativa o ambiente conda
 conda install fastqc multiqc -y # instala as ferramentas necessarias
 fastqc --version # checa a versão instalada
@@ -56,9 +56,9 @@ Baixar em: amostra1 = https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR8175630
 Exemplo de arquivos:
 
 ```text
-data/raw/amostra1.fastq.gz
-data/raw/amostra2.fastq.gz
-data/raw/amostra3.fastq.gz
+data/raw/SSRXXXXXX.fastq.gz
+data/raw/SSRXXXXXX.fastq.gz
+data/raw/SSRXXXXXX.fastq.gz
 ```
 
 Se o projeto tiver metadados, eles podem ser colocados em:
@@ -66,6 +66,11 @@ Se o projeto tiver metadados, eles podem ser colocados em:
 ```text
 data/metadata/samples.csv
 ```
+Rodar um dos transcriptmas com o fastQC
+``bash
+fastqc {SRRXXXX.fastq.gz}
+
+### Scripts - craiçao e exucução de scripts em bash .sh
 
 ## Script do FastQC
 
