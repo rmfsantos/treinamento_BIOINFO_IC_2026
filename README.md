@@ -121,20 +121,49 @@ Arquivo: `scripts/run_multiqc.sh`
 
 ```bash
 #!/usr/bin/env bash
+# Esta linha indica que o script deve ser executado usando o programa "bash".
+# É o "shebang": quase todo script em shell começa assim.
+
 set -euo pipefail
+# 'set -e'  : se algum comando der erro, o script para imediatamente.
+# 'set -u'  : se usar uma variável que não foi definida, o script também para.
+# 'set -o pipefail' : se um comando dentro de um pipeline (com "|") falhar, o erro é propagado.
+# Essas três opções ajudam a evitar que o script continue rodando em estado "quebrado".
 
 ENV_NAME="orquideas-qc"
+# Aqui definimos o nome do ambiente Conda que será usado.
+# Você pode trocar "orquideas-qc" pelo nome do ambiente do seu projeto.
+
 IN_DIR="results/fastqc"
+# IN_DIR é o diretório onde estão os resultados do FastQC.
+# O MultiQC vai ler esses arquivos para gerar o relatório resumido.
+
 OUT_DIR="results/multiqc"
+# OUT_DIR é o diretório onde o MultiQC vai salvar o relatório final.
 
 echo "Criando diretório de saída do MultiQC: ${OUT_DIR}..."
+# 'echo' apenas imprime uma mensagem na tela, para o usuário saber o que está acontecendo.
+
 mkdir -p "${OUT_DIR}"
+# 'mkdir -p' cria a pasta indicada em OUT_DIR.
+# A opção '-p' garante que, se a pasta já existir, não dá erro.
 
 echo "Rodando MultiQC em ${IN_DIR}..."
+# Mais uma mensagem informativa para o usuário.
+
 multiqc "${IN_DIR}" -o "${OUT_DIR}"
+# Este é o comando principal:
+# - 'multiqc "${IN_DIR}"' diz para o MultiQC procurar arquivos de saída de várias ferramentas
+#   (como FastQC) dentro da pasta IN_DIR.
+# - '-o "${OUT_DIR}"' diz em qual pasta o relatório do MultiQC deve ser salvo.
+# No final, o programa gera um arquivo HTML com o resumo de todas as amostras.
 
 echo "Análise MultiQC concluída."
+# Mensagem indicando que o comando terminou sem erros.
+
 echo "Relatório principal: ${OUT_DIR}/multiqc_report.html"
+# Informa o caminho completo do arquivo HTML gerado pelo MultiQC.
+# É esse arquivo que você deve abrir no navegador para ver os gráficos e tabelas.
 ```
 
 O MultiQC é usado justamente para agregar vários relatórios de ferramentas como FastQC em um único HTML.
