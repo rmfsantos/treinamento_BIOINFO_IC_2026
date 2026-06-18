@@ -39,8 +39,10 @@ Se quiser criar o ambiente manualmente, use:
 
 ```bash
 conda create --name orquideas-qc python=3.11 -y
-conda activate orquideas-qc
-conda install fastqc multiqc -y #instala as ferramentas necessarias
+conda activate orquideas-qc # ativa o ambiente conda
+conda install fastqc multiqc -y # instala as ferramentas necessarias
+fastqc --version # checa a versão instalada
+muiltiqc --version # checa a versão instalada
 ```
 
 ## Dados de entrada
