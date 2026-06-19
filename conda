@@ -16,3 +16,10 @@ EOF
 bash
 conda clean -i
 conda create --name orchid_qc python=3.11
+
+
+
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
+conda config --set channel_priority strict
