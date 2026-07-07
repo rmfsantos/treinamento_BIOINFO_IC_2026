@@ -1,4 +1,4 @@
-# Treinamento_IC_Aula3 – Interpretação do QC e Trimming com 3 Ferramentas
+# Treinamento_IC_Aula_2 – Interpretação do QC e Trimming com 3 Ferramentas
 
 Nesta aula vamos:
 
