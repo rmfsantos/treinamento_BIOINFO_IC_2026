@@ -215,3 +215,141 @@ O relatório MultiQC permite comparar várias amostras de uma vez, o que facilit
 - Estudarf sobre Trimming e ferramentas de trimming (Trimmomatic, trim galore) e pensar em qual usar no projeto
 - Aprender a baixar SRR pelo terminal via SRAtoolkit
 Este projeto pode ser reutilizado em outros conjuntos de dados, bastando trocar os arquivos FASTQ na pasta `data/raw/` e ajustar os metadados, se necessário.
+
+# AULA 2 - QC + Trimming
+
+Nesta aula vamos:
+
+Interpretar os relatórios do FastQC e do MultiQC.
+
+Aplicar 3 ferramentas de trimming diferentes ao mesmo conjunto de dados.
+
+Rodar de novo FastQC e MultiQC depois de cada trimming.
+
+Comparar os resultados e discutir qual abordagem faz mais sentido.
+
+Objetivo
+Ao final da aula, o aluno deve ser capaz de:
+
+Ler os principais gráficos do FastQC e do MultiQC e dizer se os dados estão “bons o suficiente” para seguir na análise.
+
+Explicar, em termos simples, o que fazem:
+
+Ferramenta 1 (por exemplo, Trimmomatic).
+
+Ferramenta 2 (por exemplo, Cutadapt).
+
+Ferramenta 3 (por exemplo, fastp).
+
+Comparar os efeitos de cada ferramenta no mesmo conjunto de FASTQ (perda de reads, remoção de adaptadores, qualidade por base).
+
+Estrutura do projeto (mantida, com pequenas extensões)
+Nome do projeto continua: treinamento_orchid_qc
+
+```
+docs/                      # documentos, prints de relatórios e anotações
+data/raw/                  # arquivos FASTQ originais (sem trimming)
+data/metadata/             # metadados das amostras (metadata.csv)
+data/trimmed_trimmomatic/  # FASTQ após trimming com ferramenta 1
+data/trimmed_cutadapt/     # FASTQ após trimming com ferramenta 2
+data/trimmed_fastp/        # FASTQ após trimming com ferramenta 3
+scripts/                   # scripts bash para QC e trimming
+results/
+  ├── before_trim/
+  │   ├── fastqc/          # FastQC antes do trimming
+  │   └── multiqc/         # MultiQC antes do trimming
+  ├── trimmomatic/
+  │   ├── fastqc/          # FastQC pós Trimmomatic
+  │   └── multiqc/         # MultiQC pós Trimmomatic
+  ├── cutadapt/
+  │   ├── fastqc/          # FastQC pós Cutadapt
+  │   └── multiqc/         # MultiQC pós Cutadapt
+  └── fastp/
+      ├── fastqc/          # FastQC pós fastp
+      └── multiqc/         # MultiQC pós fastp
+README.md                  # resumo da aula
+```
+Bloco 1 – Revisão e interpretação do FastQC / MultiQC
+1.1. Relembrar a execução (já feita)
+QC inicial (já feito na Aula 1):
+
+```
+conda activate orchid_qc
+
+# QC antes do trimming – pode reutilizar ou repetir
+./scripts/run_fastqc.sh        # salva em results/fastqc/
+./scripts/run_multiqc.sh       # salva em results/multiqc/
+```
+Sugestão: para esta aula, renomear esses resultados para results/before_trim/ ou rodar scripts que já gravem nesse caminho.
+
+1.2. O que olhar no FastQC
+Orientação para alunos (em docs/aula.md, por exemplo):
+
+Abrir 1 relatório FastQC em HTML.
+
+Focar nos módulos:
+
+Per base sequence quality.
+
+Per sequence GC content.
+
+Adapter content.
+
+Responder em 2–3 frases:
+
+A qualidade geral é boa, média ou ruim?
+
+Há muito adaptador?
+
+1.3. O que olhar no MultiQC
+Abrir results/before_trim/multiqc/multiqc_report.html.
+
+Comparar as amostras:
+
+Qual tem pior qualidade média?
+
+Alguma tem muito adaptador?
+
+Bloco 2 – Trimming com 3 ferramentas
+Aqui você pode só especificar o objetivo de cada ferramenta, sem ainda mergulhar em todos os parâmetros (isso pode vir em outra aula):
+
+Ferramenta 1 (Trimmomatic): foca em cortar bases de baixa qualidade nas pontas e remover adaptadores com base em um arquivo de adaptadores.
+
+Ferramenta 2 (Cutadapt): foca fortemente em remover adaptadores ou sequências conhecidas nas extremidades.
+
+Ferramenta 3 (fastp): faz trimming, filtragem e QC rápido, tudo em um único comando.
+
+Objetivo didático
+Mostrar que, embora todas “cortem” leituras, o efeito final em qualidade, tamanho e número de reads não é idêntico.
+
+Fazer os alunos pensarem em termos de trade-off: limpar vs. perder dados.
+
+Organização de scripts
+Sugestão de nomes (dentro de scripts/):
+
+Bloco 3 – Comparação dos resultados
+Depois de rodar os scripts:
+
+Abrir os 4 relatórios MultiQC:
+
+results/before_trim/multiqc/multiqc_report.html
+
+results/trimmomatic/multiqc/multiqc_report.html
+
+results/cutadapt/multiqc/multiqc_report.html
+
+results/fastp/multiqc/multiqc_report.html
+
+Para cada ferramenta, pedir que o grupo responda, em docs/tabela_comparacao.md ou similar:
+
+Houve redução de adaptadores?
+
+A qualidade por base ficou melhor?
+
+Quantos reads foram perdidos (aproximadamente)?
+
+No final, cada grupo escolhe:
+
+Qual resultado usaria para seguir a pipeline de RNA‑Seq?
+
+Em uma frase: por quê?
