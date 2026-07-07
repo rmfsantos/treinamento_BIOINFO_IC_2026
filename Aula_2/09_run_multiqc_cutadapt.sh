@@ -5,9 +5,6 @@ ENV_NAME="orchid_qc"
 IN_DIR="results/cutadapt/fastqc"
 OUT_DIR="results/cutadapt/multiqc"
 
-echo "Ativando ambiente Conda: ${ENV_NAME}..."
-conda activate "${ENV_NAME}"
-
 echo "Criando diretório de saída do MultiQC (Cutadapt): ${OUT_DIR}..."
 mkdir -p "${OUT_DIR}"
 
