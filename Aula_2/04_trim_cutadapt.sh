@@ -5,9 +5,6 @@ ENV_NAME="orchid_qc"
 RAW_DIR="data/raw"
 TRIM_DIR="data/trimmed_cutadapt"
 
-echo "Ativando ambiente Conda: ${ENV_NAME}..."
-conda activate "${ENV_NAME}"
-
 echo "Instalando Cutadapt (se necessário)..."
 conda install -y cutadapt
 
@@ -28,7 +25,6 @@ for fq in "${RAW_DIR}"/*.fastq*; do
         -m 36 \
         -o "${out}" \
         "${fq}"
-
     echo "Saída gerada: ${out}"
 done
 
