@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ENV_NAME="orchid_qc"
 RAW_DIR="data/raw"
 TRIM_DIR="data/trimmed_trimmomatic"
 
-echo "Ativando ambiente Conda: ${ENV_NAME}..."
-conda activate "${ENV_NAME}"
-
+echo "Usando ambiente Conda já ativado."
 echo "Criando diretório de saída: ${TRIM_DIR}..."
 mkdir -p "${TRIM_DIR}"
 
-# Caminho do arquivo de adaptadores do Trimmomatic dentro do ambiente Conda
 ADAPTERS_FILE="${CONDA_PREFIX}/share/trimmomatic/adapters/TruSeq3-SE.fa"
 
 if [[ ! -f "${ADAPTERS_FILE}" ]]; then
