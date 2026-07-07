@@ -8,19 +8,21 @@ TRIM_DIR="data/trimmed_trimmomatic"
 echo "Ativando ambiente Conda: ${ENV_NAME}..."
 conda activate "${ENV_NAME}"
 
-echo "Instalando Trimmomatic (se necessário)..."
-conda install -y trimmomatic
-
 echo "Criando diretório de saída: ${TRIM_DIR}..."
 mkdir -p "${TRIM_DIR}"
 
-# Caminho padrão dos arquivos de adaptador dentro do ambiente conda
-ADAPTERS_DIR="${CONDA_PREFIX}/share/trimmomatic-0.39-1/adapters"
-ADAPTERS_FILE="${ADAPTERS_DIR}/TruSeq3-SE.fa"
+# Caminho do arquivo de adaptadores do Trimmomatic dentro do ambiente Conda
+ADAPTERS_FILE="${CONDA_PREFIX}/share/trimmomatic/adapters/TruSeq3-SE.fa"
+
+if [[ ! -f "${ADAPTERS_FILE}" ]]; then
+    echo "ERRO: Arquivo de adaptadores não encontrado em:"
+    echo "  ${ADAPTERS_FILE}"
+    echo "Verifique o conteúdo de: ${CONDA_PREFIX}/share/trimmomatic/adapters"
+    exit 1
+fi
 
 echo "Usando arquivo de adaptadores: ${ADAPTERS_FILE}"
 
-# Loop sobre todos os FASTQ(.gz) em data/raw
 for fq in "${RAW_DIR}"/*.fastq*; do
     base=$(basename "${fq}")
     out="${TRIM_DIR}/${base%.fastq*}.trimmed.fastq.gz"
