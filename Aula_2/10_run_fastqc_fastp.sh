@@ -5,9 +5,6 @@ ENV_NAME="orchid_qc"
 RAW_DIR="data/trimmed_fastp"
 OUT_DIR="results/fastp/fastqc"
 
-echo "Ativando ambiente Conda: ${ENV_NAME}..."
-conda activate "${ENV_NAME}"
-
 echo "Criando diretório de saída do FastQC (fastp): ${OUT_DIR}..."
 mkdir -p "${OUT_DIR}"
 
