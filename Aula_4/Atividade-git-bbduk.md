@@ -178,7 +178,8 @@ git commit -m "Adiciona resultados do BBDuk e .gitignore"
 
 > **Atenção:** não adicione arquivos FASTQ grandes (>50 MB quebra o repositório). Versione apenas os resultados, scripts e README. Todo projeto deve ter seu `.gitignore`.
 
----
+### Adicionar rmfsantos@uefs.br como colborador (dar permissão edicao e leitura)
+
 
 ## Checklist final
 
