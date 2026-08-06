@@ -9,13 +9,13 @@ Os programas __getorf__ e __plotorf__ identificam ORFs em sequências de nucleot
 
 ![exercicio] Use os programas getorf e plotorf para identificar o quadro de leitura aberto correto de um genoma de orquidea (escolha um genoma pequeno - baixe o menor). Verifique se existe alguma diferença nos resultados fornecidos por ambos os programas. Descreva o processo que realizou.
 
-Crie o projeto: orfs_genome_orchid - 
-Crie a estrutura do projeto
-Baixe o dado (1 genoma de orquidea)
-Crie 1 script para cada ferramenta (getorf e plotorf)
-Crie ambientes separados no Conda
-Crie um Readme explicando o projeto e criando uma tabela comparativa de resultados 
+1- Crie o projeto: orfs_genome_orchid - 
+2- Crie a estrutura do projeto
+3- Baixe o dado (1 genoma de orquidea)
+4- Crie 1 script para cada ferramenta (getorf e plotorf)
+5- Crie ambientes separados no Conda - getorf_env e plotorf_env
+6- Rode os scripts
+7- Crie um Readme explicando o projeto e criando uma tabela comparativa de resultados de cada ferramenta
+8- Suba o projeto para o Github
 
 #### Documente tudo. 
-
-
