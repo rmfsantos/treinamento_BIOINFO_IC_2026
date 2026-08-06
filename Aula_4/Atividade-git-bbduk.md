@@ -1,4 +1,4 @@
-# Atividade Prática — Git colaborativo com BBDuk
+# Atividade Prática — Git 
 
 **Objetivo:** exercício prático de filtragem de qualidade com **BBDuk**, usando os dados já baixados pela turma, e praticando os comandos básicos de Git.
 
